@@ -48,8 +48,7 @@ public class NeuralController {
 	private JwtUtil jwtutil;
 	
 	
-	@Value("${huggingface.api.key}")
-	private String apiKey;
+	
 
 
 	@GetMapping("/")
