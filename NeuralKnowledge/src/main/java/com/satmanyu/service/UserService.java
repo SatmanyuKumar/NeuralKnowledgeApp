@@ -80,9 +80,9 @@ public class UserService {
 		return "failed";
 	}
 
-	public boolean changePassword(String userName, String oldPassword, String newPassword) {
+	public boolean changePassword(String email, String oldPassword, String newPassword) {
 		BCryptPasswordEncoder b=getEncoder();
-		MyUser user=userRepo.findById(userName).orElse(null);
+		MyUser user=userRepo.findById(email).orElse(null);
 		
 		if(user!=null && b.matches(oldPassword, user.getPassword())) {
 			
