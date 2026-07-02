@@ -296,7 +296,8 @@ public class NeuralController {
 	}
 
 
-	 @PostMapping("/change_password")
+	 // @PostMapping("/change_password")
+	@PostMapping("/update_password")
 	public String changePassword(Principal principal, @RequestParam String oldPassword,
 			@RequestParam String newPassword, @RequestParam String confirmPassword, Model m) {
 		String userName = principal.getName();
