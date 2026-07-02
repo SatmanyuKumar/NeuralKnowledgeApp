@@ -90,6 +90,12 @@ public class UserService {
 			userRepo.save(user);
 			return true;
 		}
+		else if(user!=null && user.getPassword()==null) {
+			
+			user.setPassword(b.encode(newPassword));
+			userRepo.save(user);
+			return true;
+		}
 		
 		return false;
 	}
