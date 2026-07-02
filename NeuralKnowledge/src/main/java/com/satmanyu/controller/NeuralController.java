@@ -243,7 +243,7 @@ public class NeuralController {
 			m.addAttribute("msg", "User Does Not Exist!");
 		} else {
 			 String s=mailSending.mailSendResetPassword(email);
-			 String s = mailSending.mailSendResetPasswordHTML(email);
+			 s = mailSending.mailSendResetPasswordHTML(email);
 			if (s.equalsIgnoreCase("success")) {
 				m.addAttribute("msg", "Password Reset Link Mail Send!");
 			} else {
