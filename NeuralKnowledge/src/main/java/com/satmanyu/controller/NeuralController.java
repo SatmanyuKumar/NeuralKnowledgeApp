@@ -254,29 +254,29 @@ public class NeuralController {
 		return "login";
 	}
 
-	@PostMapping("/update_password")
-	public String updatePassword(@RequestParam String newPassword, @RequestParam String confirmPassword,
-			@RequestParam String token, Model m) {
+	
+	// public String updatePassword(@RequestParam String newPassword, @RequestParam String confirmPassword,
+	// 		@RequestParam String token, Model m) {
 
-		String email = jwtutil.validateToken(token);
+	// 	String email = jwtutil.validateToken(token);
 
-		if (email == null) {
-			m.addAttribute("msg", "Invalid or Expired Token!");
-		} else {
-			if (newPassword.equals(confirmPassword)) {
-				if (userservice.updatePassword(newPassword, email)) {
-					m.addAttribute("msg", "Password Updated!");
-				} else {
-					m.addAttribute("msg", "User Not Found!");
-				}
-			} else {
-				m.addAttribute("msg", "Password Mismatched!");
-				return "reset_password";
-			}
-		}
+	// 	if (email == null) {
+	// 		m.addAttribute("msg", "Invalid or Expired Token!");
+	// 	} else {
+	// 		if (newPassword.equals(confirmPassword)) {
+	// 			if (userservice.updatePassword(newPassword, email)) {
+	// 				m.addAttribute("msg", "Password Updated!");
+	// 			} else {
+	// 				m.addAttribute("msg", "User Not Found!");
+	// 			}
+	// 		} else {
+	// 			m.addAttribute("msg", "Password Mismatched!");
+	// 			return "reset_password";
+	// 		}
+	// 	}
 
-		return "login";
-	}
+	// 	return "login";
+	// }
 
 	@PostMapping("/uploadProfileImage")
 	public String uploadProfileImage(Principal principal, @RequestPart MultipartFile img, Model m) throws IOException {
@@ -295,7 +295,8 @@ public class NeuralController {
 		return "my_profile";
 	}
 
-	@PostMapping("/change_password")
+	// @PostMapping("/change_password")
+	@PostMapping("/update_password")
 	public String changePassword(Principal principal, @RequestParam String oldPassword,
 			@RequestParam String newPassword, @RequestParam String confirmPassword, Model m) {
 		String userName = principal.getName();
