@@ -320,8 +320,7 @@ public class NeuralController {
 		return "changepassword";
 	}
 
-		return "changepassword";
-	}
+	
 
 	@GetMapping("/viewPdf")
 	public void viewPdf(@RequestParam Long id, HttpServletResponse response,Principal p) throws IOException {
