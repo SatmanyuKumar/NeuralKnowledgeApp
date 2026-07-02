@@ -254,7 +254,7 @@ public class NeuralController {
 		return "login";
 	}
 
-	
+	//@PostMapping("/update_password")
 	// public String updatePassword(@RequestParam String newPassword, @RequestParam String confirmPassword,
 	// 		@RequestParam String token, Model m) {
 
@@ -295,8 +295,8 @@ public class NeuralController {
 		return "my_profile";
 	}
 
-	// @PostMapping("/change_password")
-@PostMapping("/update_password")
+
+	 @PostMapping("/change_password")
 	public String changePassword(Principal principal, @RequestParam String oldPassword,
 			@RequestParam String newPassword, @RequestParam String confirmPassword, Model m) {
 		String userName = principal.getName();
