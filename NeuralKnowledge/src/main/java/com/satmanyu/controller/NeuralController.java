@@ -302,7 +302,7 @@ public class NeuralController {
 		String userName = principal.getName();
 //		String email = jwtutil.validateToken(token);
 		if (!oldPassword.equals(newPassword) && newPassword.equals(confirmPassword)) {
-			boolean result = userservice.updatePassword(newPassword, userName);
+			boolean result = userservice.changePassword(userName,oldPassword,newPassword);
 			if (result) {
 				m.addAttribute("success", "Password Changed Successfully!");
 
