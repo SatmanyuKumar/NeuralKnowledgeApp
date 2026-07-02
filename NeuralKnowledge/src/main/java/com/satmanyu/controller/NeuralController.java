@@ -307,15 +307,16 @@ public class NeuralController {
 				m.addAttribute("success", "Password Changed Successfully!");
 
 			} else {
-				m.addAttribute("error", "Password Mismatched!");
 				
+				m.addAttribute("error", "Old Password Not Match");
 			}
 
 		} else if (oldPassword.equals(newPassword) || oldPassword.equals(confirmPassword)) {
 			m.addAttribute("error", "Enter a password that has not been used before!");
 
 		} else {
-			m.addAttribute("error", "User not Found!");
+			
+			m.addAttribute("error", "Password Mismatched!");
 		}
 
 		return "changepassword";
