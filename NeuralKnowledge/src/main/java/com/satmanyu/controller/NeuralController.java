@@ -296,12 +296,13 @@ public class NeuralController {
 	}
 
 	// @PostMapping("/change_password")
-	@PostMapping("/update_password")
+@PostMapping("/update_password")
 	public String changePassword(Principal principal, @RequestParam String oldPassword,
 			@RequestParam String newPassword, @RequestParam String confirmPassword, Model m) {
 		String userName = principal.getName();
+//		String email = jwtutil.validateToken(token);
 		if (!oldPassword.equals(newPassword) && newPassword.equals(confirmPassword)) {
-			boolean result = userservice.changePassword(userName, oldPassword, newPassword);
+			boolean result = userservice.updatePassword(newPassword, userName);
 			if (result) {
 				m.addAttribute("success", "Password Changed Successfully!");
 
@@ -315,6 +316,9 @@ public class NeuralController {
 		} else {
 			m.addAttribute("error", "Password Mismatched!");
 		}
+
+		return "changepassword";
+	}
 
 		return "changepassword";
 	}
